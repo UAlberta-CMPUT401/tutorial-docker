@@ -35,3 +35,33 @@ RUN python manage.py collectstatic --no-input
 # Docker-Compose
 The files docker-compose-dev.yaml and docker-compose-prod.yaml are responsible for running our application along with a PostgreSQL database in both a development
 and production environment respectively.
+### Development Server
+```yaml
+version: '3.1'
+
+services:
+  django:
+    image: jmbillson/docker_django_example
+    command: python manage.py runserver 0.0.0.0:8080
+    volumes:
+      - ./docker_example/:/usr/src/app/
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env.dev
+  db:
+    image: postgres:latest
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=jmbillson
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=dockerexample
+
+volumes:
+  postgres_data:
+```
+
+### Production Server
+```yaml
+```
