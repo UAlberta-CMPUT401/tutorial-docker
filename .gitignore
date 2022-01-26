@@ -1,2 +1,3 @@
 docker_example/.idea
 docker_example/venv
+docker_example/staticfiles
