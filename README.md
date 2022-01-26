@@ -64,4 +64,27 @@ volumes:
 
 ### Production Server
 ```yaml
+version: '3.1'
+
+services:
+  django:
+    image: jmbillson/docker_django_example
+    command: gunicorn docker_example.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - ./docker_example/:/usr/src/app/
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env.dev
+  db:
+    image: postgres:latest
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=jmbillson
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=dockerexample
+
+volumes:
+  postgres_data:
 ```
