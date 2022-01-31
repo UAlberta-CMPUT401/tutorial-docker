@@ -3,6 +3,12 @@
 This tutorial is intended to provide an introduction to Docker. In particular, you will learn how to Dockerize a simple Django application and how to run it 
 in both development and production.
 
+# Original Screencast
+[Docker Workshop - Winter 2022](https://drive.google.com/file/d/10tYCZE_WZ9Km1Gky4qW89gcrpqrHOqC5/view?usp=sharing)
+
+# Additional Information
+[![](https://img.youtube.com/vi/3c-iBn73dDE/0.jpg)](https://www.youtube.com/watch?v=33c-iBn73dDE)
+
 # Dockerfile
 The Dockerfile located in the docker_example/ directory is responsible for building our Docker image.
 ```Dockerfile
