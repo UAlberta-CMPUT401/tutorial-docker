@@ -93,6 +93,20 @@ volumes:
 To allow our application to run according to different settings in development and in production, we rely on environmental variables to configure our server. 
 Environmental variables are defined in ```.env.dev``` and are set inside our docker-compose files. We can then reference these variables inside ```settings.py```.
 
+### Environment File
+```Dockerfile
+DEBUG=1
+SECRET_KEY=foo
+DJANGO_ALLOWED_HOSTS=localhost 0.0.0.0 [::1] 127.0.0.1
+SQL_ENGINE=django.db.backends.postgresql
+SQL_DATABASE=dockerexample
+SQL_USER=jmbillson
+SQL_PASSWORD=password
+SQL_HOST=db
+SQL_PORT=5432
+```
+
+### Django Settings.py
 ```python3
 from pathlib import Path
 import os
